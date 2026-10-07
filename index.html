@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spire Studio · Websites for Family-Run Businesses in Lichfield</title>
+<meta name="description" content="Spire Studio makes modern websites for family-run businesses in Lichfield and Staffordshire. See a free demo of your new website before you pay anything.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* One accent colour, reserved for things you can tap. Neutrals do the rest. */
+  :root{
+    --bg:#fff;--bg2:#f5f5f7;--card:#fff;--tile:#1d1d1f;--mk:#1d1d1f;
+    --text:#1d1d1f;--text2:#6e6e73;--text3:#86868b;--line:#d2d2d7;
+    --accent:#d63f1b;--accent-h:#b8340f;--on-accent:#fff;
+    --shadow:0 30px 60px -30px rgba(0,0,0,.35);
+    --ease:cubic-bezier(.25,.1,.25,1);
+  }
+  @media (prefers-contrast:more){
+    :root{--text2:#3a3a3c;--line:#8e8e93;--accent:#a8300c}
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,"Segoe UI",system-ui,sans-serif;font-size:17px;line-height:1.47;letter-spacing:-.011em;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,"Segoe UI",system-ui,sans-serif;font-weight:700;letter-spacing:-.025em}
+  .k{display:block;font-weight:600;font-size:1.05rem;color:var(--text2)}
+  h2{font-size:clamp(2.2rem,4.6vw,3.5rem);line-height:1.07;margin:8px 0 18px}
+  h2 span{color:var(--text3)}
+  .lead{color:var(--text2);font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.45;max-width:560px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-weight:600;font-size:1.06rem;padding:12px 26px;border-radius:999px;transition:background-color .2s var(--ease),color .2s var(--ease);white-space:nowrap}
+  .btn-o{background:var(--accent);color:var(--on-accent)}
+  .btn-o:hover{background:var(--accent-h)}
+  .btn-l{background:var(--bg2);color:var(--text)}
+  .btn-l:hover{background:var(--line)}
+
+  /* nav: translucent material */
+  .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .nav.scrolled{border-color:var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem;letter-spacing:-.02em}
+  .mk{width:34px;height:34px;flex:none;display:block}
+  .lg2{color:var(--text2);font-weight:600}
+  .links{display:flex;gap:30px;font-size:.94rem;color:var(--text2)}
+  .links a:hover{color:var(--text)}
+  .nav .btn{min-height:36px;padding:7px 16px;font-size:.88rem}
+
+  /* hero */
+  .hero{padding:96px 0 90px}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .pill{display:inline-block;font-weight:600;font-size:1rem;color:var(--text2);margin-bottom:18px}
+  .hero h1{font-size:clamp(2.9rem,6.2vw,5rem);line-height:1.03;letter-spacing:-.035em}
+  .hero h1 span{color:var(--text3)}
+  .hero p{font-size:clamp(1.15rem,1.7vw,1.35rem);color:var(--text2);max-width:500px;margin:24px 0 34px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;font-size:.94rem;color:var(--text2)}
+  .trust span{display:inline-flex;align-items:center;gap:7px}
+  .trust svg{width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:2.2}
+
+  .stack{position:relative;height:500px}
+  .win{position:absolute;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .win .bar{height:26px;background:var(--bg2);display:flex;align-items:center;gap:6px;padding:0 11px}
+  .win .bar b{width:8px;height:8px;border-radius:50%;background:#ff5f57}.win .bar b:nth-child(2){background:#febc2e}.win .bar b:nth-child(3){background:#28c840}
+  .win .shot{aspect-ratio:16/10}
+  .w1{width:76%;left:0;top:20px}
+  .w2{width:68%;right:0;top:160px;z-index:2}
+  .w3{width:52%;left:14%;bottom:0;z-index:3}
+
+  /* business types */
+  .marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+  .marq .t{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 30px;font-weight:600;font-size:1.1rem;color:var(--text2)}
+
+  section{padding:120px 0}
+
+  /* how */
+  .how .head{text-align:center;max-width:680px;margin:0 auto 56px}
+  .how .head .lead{margin:0 auto}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .st{background:var(--bg2);border-radius:28px;padding:38px 32px;position:relative}
+  .st .n{font-weight:700;font-size:3.4rem;line-height:1;letter-spacing:-.04em;color:var(--text3)}
+  .st h3{font-size:1.4rem;margin:18px 0 8px}
+  .st p{color:var(--text2)}
+  .st .free{position:absolute;top:30px;right:28px;background:var(--card);color:var(--text);font-weight:600;font-size:.8rem;padding:5px 12px;border-radius:999px}
+
+  /* work */
+  .work{background:var(--bg2);border-radius:36px;margin:0 16px}
+  .work .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:48px}
+  .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .wc{background:var(--card);border-radius:22px;overflow:hidden}
+  .wc .shot{aspect-ratio:16/10;overflow:hidden}
+  .wc .shot img{object-position:top;transition:transform .6s var(--ease)}
+  a.wc:hover .shot img{transform:scale(1.03)}
+  .wc .meta{padding:18px 22px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .wc b{font-size:1.1rem;font-weight:600;display:block;letter-spacing:-.015em}
+  .wc span{color:var(--text2);font-size:.9rem}
+  .wc.big{grid-column:span 2}
+  .wc.big .shot{aspect-ratio:16/8.2}
+  a.wc{display:block;color:inherit}
+  .wc .go{width:44px;height:44px;border-radius:50%;background:var(--bg2);color:var(--accent);display:grid;place-items:center;font-weight:600;flex:none;transition:background-color .2s}
+  a.wc:hover .go{background:var(--line)}
+
+  /* features */
+  .feat .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .f{background:var(--bg2);border-radius:22px;padding:26px 24px}
+  .f svg{width:28px;height:28px;stroke:var(--text);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+  .f h3{font-weight:600;font-size:1.06rem;letter-spacing:-.015em;margin-bottom:3px}
+  .f p{color:var(--text2);font-size:.94rem}
+
+  /* pricing */
+  .price{background:var(--bg2)}
+  .price .head{text-align:center;max-width:620px;margin:0 auto 50px}
+  .price .head .lead{margin:0 auto}
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:880px;margin:0 auto}
+  .plan{background:var(--card);border-radius:28px;padding:40px 36px;display:flex;flex-direction:column}
+  .plan.hot{background:var(--tile);color:#f5f5f7;position:relative;box-shadow:inset 0 0 0 1.5px var(--accent)}
+  .plan.hot::before{content:"Most businesses pick this";position:absolute;top:-13px;left:36px;background:var(--accent);color:var(--on-accent);font-weight:600;font-size:.8rem;padding:5px 13px;border-radius:999px}
+  .plan h3{font-size:1.35rem}
+  .plan .amt{font-weight:700;font-size:3.2rem;letter-spacing:-.04em;line-height:1;margin:16px 0 6px}
+  .plan .amt small{white-space:nowrap;display:inline-block;font-size:1rem;font-weight:500;letter-spacing:0;color:var(--text2)}
+  .plan.hot .amt small,.plan.hot .sub{color:#a1a1a6}
+  .plan .sub{color:var(--text2);margin-bottom:26px}
+  .plan ul{list-style:none;display:grid;gap:12px;margin-bottom:32px;flex:1}
+  .plan li{display:flex;gap:10px;align-items:flex-start}
+  .plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat}
+  .plan .btn{width:100%}
+  .plan.hot .btn-l{background:rgba(255,255,255,.12);color:#f5f5f7}
+  .price .free-note{text-align:center;margin-top:32px;color:var(--text2)}
+  .price .free-note span{color:var(--text);font-weight:600}
+
+  /* faq */
+  .faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+  details{border-bottom:1px solid var(--line)}
+  details:first-child{border-top:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;min-height:44px;font-weight:600;font-size:1.12rem;letter-spacing:-.015em}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.6rem;font-weight:300;color:var(--text2);transition:transform .25s var(--ease)}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 24px;color:var(--text2);max-width:620px}
+
+  /* contact */
+  .contact .box{background:var(--tile);color:#f5f5f7;border-radius:36px;padding:80px 60px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .contact h2{color:#f5f5f7}
+  .contact h2 span{color:#86868b}
+  .contact p{color:#a1a1a6;font-size:1.2rem}
+  .cl{display:grid;gap:10px}
+  .cl a{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.07);border-radius:18px;padding:16px 18px;min-height:44px;transition:background-color .2s var(--ease)}
+  .cl a:hover{background:rgba(255,255,255,.13)}
+  .cl .i{width:44px;height:44px;border-radius:12px;background:var(--accent);display:grid;place-items:center;flex:none}
+  .cl svg{width:22px;height:22px;stroke:var(--on-accent);fill:none;stroke-width:1.8}
+  .cl b{display:block;font-weight:600;font-size:1.04rem}
+  .cl span{font-size:.9rem;color:#a1a1a6}
+  .cl a[hidden]{display:none}
+
+  /* instagram */
+  .ig{padding-bottom:40px}
+  .ig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+  .ig-handle{display:flex;align-items:center;gap:14px;background:var(--bg2);border-radius:20px;padding:14px 22px 14px 14px;transition:background-color .2s var(--ease)}
+  .ig-handle:hover{background:var(--line)}
+  .ig-ic{width:50px;height:50px;border-radius:14px;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%);display:grid;place-items:center;flex:none}
+  .ig-ic svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8}
+  .ig-handle b{display:block;font-weight:600;font-size:1.06rem}
+  .ig-handle small{color:var(--accent);font-weight:500;font-size:.9rem}
+  .ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .ig-grid a{aspect-ratio:1;border-radius:18px;overflow:hidden;position:relative}
+  .ig-grid img{object-position:top left;transition:transform .6s var(--ease)}
+  .ig-grid a:hover img{transform:scale(1.03)}
+  .ig-grid a::after{content:"View on Instagram";position:absolute;inset:0;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center;font-weight:600;font-size:.88rem;opacity:0;transition:opacity .25s}
+  .ig-grid a:hover::after,.ig-grid a:focus-visible::after{opacity:1}
+
+  /* floating whatsapp */
+  .fab{position:fixed;right:22px;bottom:22px;z-index:70;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 28px -10px rgba(0,0,0,.45)}
+  .fab svg{width:30px;height:30px;fill:#fff}
+  .fab[hidden]{display:none}
+  @media (max-width:980px){.ig-grid{grid-template-columns:1fr 1fr}.fab{bottom:88px;right:16px;width:56px;height:56px}}
+
+  footer{padding:40px 0 110px;color:var(--text3);font-size:.88rem;border-top:1px solid var(--line);margin-top:40px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  footer .logo{color:var(--text)}
+
+  .mbar{display:none}
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}
+
+  @media (max-width:980px){
+    .links,.nav .btn{display:none}
+    .hero{padding:56px 0 70px}
+    .hero .wrap,.feat .wrap,.faq .wrap{grid-template-columns:1fr;gap:46px}
+    .stack{height:400px;max-width:560px;margin:0 auto;width:100%}
+    .steps,.wgrid,.plans{grid-template-columns:1fr}
+    .wc.big{grid-column:auto}
+    .wc.big .shot{aspect-ratio:16/10}
+    .contact .box{grid-template-columns:1fr;padding:50px 24px;border-radius:28px}
+    .work{margin:0 10px;border-radius:28px}
+    section{padding:84px 0}
+    .plans{gap:30px}
+    .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:6px;background:rgba(29,29,31,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);padding:6px;border-radius:999px;box-shadow:0 14px 34px -12px rgba(0,0,0,.5)}
+    .mbar a{flex:1;text-align:center;padding:13px 8px;border-radius:999px;font-weight:600;font-size:.94rem;color:#fff}
+    .mbar a.p{background:var(--accent);color:var(--on-accent)}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .fgrid{grid-template-columns:1fr}
+    .stack{height:300px}
+    .plan{padding:34px 24px}
+    .ctas .btn{flex:1}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="ssbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a3b"/><stop offset="1" stop-color="#c9370f"/></linearGradient></defs></svg>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#" class="logo"><svg class="mk" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="url(#ssbg)"/><g fill="#fff" stroke="#fff" stroke-width="18" stroke-linejoin="round"><path d="M278 840H386V610L332 300L278 610Z"/><path d="M450 840H574V540L512 150L450 540Z"/><path d="M638 840H746V610L692 300L638 610Z"/><path d="M278 790H746V840H278Z"/></g></svg><span>Spire <span class="lg2">Studio</span></span></a>
+    <div class="links"><a href="#how">How it works</a><a href="#work">Our work</a><a href="#pricing">Pricing</a><a href="#instagram">Instagram</a><a href="#contact">Contact</a></div>
+    <a href="#contact" class="btn btn-o">Get a free demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="pill rv in">Websites for family-run businesses in Lichfield</div>
+      <h1 class="rv in">See your new website <span>before you pay.</span></h1>
+      <p class="rv in d1">We build modern, mobile-friendly websites for local businesses. Tell us about yours and we'll make you a free demo. Only pay if you love it.</p>
+      <div class="ctas rv in d2">
+        <a href="#contact" class="btn btn-o">Get my free demo</a>
+        <a href="#work" class="btn btn-l">See our work</a>
+      </div>
+      <div class="trust rv in d2">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free demo</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No contracts</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Live in days</span>
+      </div>
+    </div>
+    <div class="stack rv in d1" aria-hidden="true">
+      <div class="win w1"><div class="bar"><b></b><b></b><b></b></div><div class="shot"><img src="work/by-lucy.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/by-lucy.jpg'" alt=""></div></div>
+      <div class="win w2"><div class="bar"><b></b><b></b><b></b></div><div class="shot"><img src="work/golden-turkish-barbers.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/golden-turkish-barbers.jpg'" alt=""></div></div>
+      <div class="win w3"><div class="bar"><b></b><b></b><b></b></div><div class="shot"><img src="work/beauty-dlite.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/beauty-dlite.jpg'" alt=""></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marq"><div class="wrap t">
+  <span>Cafes</span><span>Barbers</span><span>Salons</span><span>Dog groomers</span><span>Plumbers</span><span>Electricians</span><span>Takeaways</span>
+</div></div>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="k">How it works</span>
+      <h2>Three steps. <span>Zero risk.</span></h2>
+      <p class="lead">No sales pitch, no contracts. You see exactly what you're getting before spending a penny.</p>
+    </div>
+    <div class="steps">
+      <div class="st rv"><span class="free">Free</span><div class="n">01</div><h3>We build your demo</h3><p>We make a real website for your business, with your name, services, reviews and opening hours.</p></div>
+      <div class="st rv d1"><span class="free">Free</span><div class="n">02</div><h3>You take a look</h3><p>Check it out on your phone. Want changes? Just tell us and we'll tweak it.</p></div>
+      <div class="st rv d2"><div class="n">03</div><h3>It goes live</h3><p>Love it? We put it online on your own web address and keep it running for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="k">Our work</span><h2>Recent <span>builds.</span></h2></div>
+      <p class="lead">Websites we've designed for local businesses around Lichfield. Every one is built from scratch around the business, its photos and its reviews.</p>
+    </div>
+    <div class="wgrid">
+      <div class="wc big rv"><div class="shot"><img src="work/golden-turkish-barbers.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/golden-turkish-barbers.jpg'" alt="Turkish barbers website design" loading="lazy"></div><div class="meta"><div><b>Turkish barbers</b><span>Real shop photos, live open status, walk-ins</span></div></div></div>
+      <div class="wc rv d1"><div class="shot"><img src="work/by-lucy.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/by-lucy.jpg'" alt="Lash salon website design" loading="lazy"></div><div class="meta"><div><b>Lash salon &amp; academy</b><span>Full price list, online booking</span></div></div></div>
+      <a class="wc rv" href="https://citycornercafe-lichfield.netlify.app" target="_blank" rel="noopener"><div class="shot"><img src="work/city-corner-cafe.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/city-corner-cafe.jpg'" alt="Cafe website design" loading="lazy"></div><div class="meta"><div><b>Cafe</b><span>Menu, opening hours, delivery link</span></div><span class="go" aria-hidden="true">↗</span></div></a>
+      <div class="wc rv d1"><div class="shot"><img src="work/haruns-barbers.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/haruns-barbers.jpg'" alt="Barbers website design" loading="lazy"></div><div class="meta"><div><b>Barbers</b><span>Services, reviews, tap to call</span></div></div></div>
+      <a class="wc rv d2" href="https://heavenly-hounds.netlify.app" target="_blank" rel="noopener"><div class="shot"><img src="work/josies-heavenly-hounds.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/josies-heavenly-hounds.jpg'" alt="Dog groomer website design" loading="lazy"></div><div class="meta"><div><b>Dog groomer</b><span>WhatsApp booking</span></div><span class="go" aria-hidden="true">↗</span></div></a>
+      <div class="wc rv"><div class="shot"><img src="work/beauty-dlite.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/beauty-dlite.jpg'" alt="Beauty salon website design" loading="lazy"></div><div class="meta"><div><b>Beauty salon</b><span>Treatment menu &amp; booking</span></div></div></div>
+      <div class="wc rv d1"><div class="shot"><img src="work/mcwilliams-plumbing.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/mcwilliams-plumbing.jpg'" alt="Plumber website design" loading="lazy"></div><div class="meta"><div><b>Plumber</b><span>Quote form to WhatsApp</span></div></div></div>
+      <a class="wc rv d2" href="https://leasowe-electrical.netlify.app" target="_blank" rel="noopener"><div class="shot"><img src="work/leasowe-electrical.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/leasowe-electrical.jpg'" alt="Electrician website design" loading="lazy"></div><div class="meta"><div><b>Electrician</b><span>Real job photos, quote form</span></div><span class="go" aria-hidden="true">↗</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="feat">
+  <div class="wrap">
+    <div class="rv">
+      <span class="k">What you get</span>
+      <h2>Everything your customers <span>need.</span></h2>
+      <p class="lead">Most customers find local businesses on their phone. Every site we build is designed to turn those visits into calls and bookings.</p>
+    </div>
+    <div class="fgrid">
+      <div class="f rv"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><h3>Built for phones</h3><p>Looks perfect on every screen size.</p></div>
+      <div class="f rv d1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.5l2 5-2.5 1.5a11 11 0 0 0 6 6l1.5-2.5 5 2V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg><h3>Tap to call &amp; WhatsApp</h3><p>Customers can contact you in one tap.</p></div>
+      <div class="f rv"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><h3>Live "open now"</h3><p>Shows if you're open right now.</p></div>
+      <div class="f rv d1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"/></svg><h3>Your reviews</h3><p>Show off your Google rating.</p></div>
+      <div class="f rv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><h3>Map &amp; directions</h3><p>Easy to find, straight to your door.</p></div>
+      <div class="f rv d1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><h3>Your own address</h3><p>e.g. yourbusiness.co.uk</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="pricing">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="k">Pricing</span>
+      <h2>Simple, honest <span>pricing.</span></h2>
+      <p class="lead">No hidden fees. Pay once, or let us host and look after it for you.</p>
+    </div>
+    <div class="plans">
+      <div class="plan rv">
+        <h3>Standard</h3>
+        <div class="amt">£99.99 <small>one-off</small></div>
+        <p class="sub">Your custom website, built and launched.</p>
+        <ul><li>Custom design for your business</li><li>Mobile-friendly</li><li>Call, WhatsApp &amp; map buttons</li><li>Set up on your own web address</li></ul>
+        <a href="#contact" class="btn btn-l">Get started</a>
+      </div>
+      <div class="plan hot rv d1">
+        <h3>Plus</h3>
+        <div class="amt">£199.99 <small>+ £9.99/month</small></div>
+        <p class="sub">We look after everything, so you don't have to. Monthly fee covers 12 months of hosting.</p>
+        <ul><li>Everything in Standard</li><li>12 months of hosting included</li><li>Professional email address</li><li>Updates whenever you need (prices, photos, hours)</li><li>Help whenever you need it</li></ul>
+        <a href="#contact" class="btn btn-o">Get my free demo</a>
+      </div>
+    </div>
+    <p class="free-note rv">Not sure yet? <span>The demo is always free.</span></p>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <span class="k">FAQ</span>
+      <h2>Questions? <span>Answered.</span></h2>
+      <p class="lead">Anything else, just send us a message.</p>
+    </div>
+    <div class="rv d1">
+      <details open><summary>Is the demo really free?</summary><p>Yes. We build your demo website for free. If you don't love it, you don't pay anything and there's no obligation.</p></details>
+      <details><summary>How long does it take?</summary><p>Most demos are ready within a few days. Once you're happy, we can usually have it live on your own web address within a day or two.</p></details>
+      <details><summary>Do I need to do anything technical?</summary><p>Nope. We handle everything: design, hosting and setting up your web address. You just tell us what you want.</p></details>
+      <details><summary>Can I make changes later?</summary><p>Of course. On the Plus plan, just message us whenever you want to change prices, photos, hours or anything else.</p></details>
+      <details><summary>What's the web address cost?</summary><p>A .co.uk address is usually around £10 a year, paid directly to the provider so it's always yours.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="ig" id="instagram">
+  <div class="wrap">
+    <div class="ig-head rv">
+      <div>
+        <span class="k">Follow along</span>
+        <h2>See new builds <span>on Instagram.</span></h2>
+        <p class="lead">We post every new website we make. Follow us to see the latest work, or drop us a DM.</p>
+      </div>
+      <a class="ig-handle" href="https://www.instagram.com/website_buildzzz/" target="_blank" rel="noopener">
+        <span class="ig-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff" stroke="none"/></svg></span>
+        <span><b>@website_buildzzz</b><small>Follow on Instagram ↗</small></span>
+      </a>
+    </div>
+    <div class="ig-grid rv d1">
+      <a href="https://www.instagram.com/website_buildzzz/" target="_blank" rel="noopener"><img src="work/golden-turkish-barbers.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/golden-turkish-barbers.jpg'" alt="Golden Turkish Barbers website" loading="lazy"></a>
+      <a href="https://www.instagram.com/website_buildzzz/" target="_blank" rel="noopener"><img src="work/by-lucy.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/by-lucy.jpg'" alt="Lash salon website" loading="lazy"></a>
+      <a href="https://www.instagram.com/website_buildzzz/" target="_blank" rel="noopener"><img src="work/leasowe-electrical.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/leasowe-electrical.jpg'" alt="Electrician website" loading="lazy"></a>
+      <a href="https://www.instagram.com/website_buildzzz/" target="_blank" rel="noopener"><img src="work/city-corner-cafe.jpg" onerror="this.onerror=null;this.src='https://spire-studio.netlify.app/work/city-corner-cafe.jpg'" alt="Cafe website" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="box rv">
+      <div>
+        <h2>Let's build <span>yours.</span></h2>
+        <p>Send us your business name and we'll make you a free demo. No pressure, no obligation.</p>
+      </div>
+      <div class="cl">
+        <a href="https://ig.me/m/website_buildzzz" target="_blank" rel="noopener"><span class="i"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></span><div><b>DM us on Instagram</b><span>@website_buildzzz</span></div></a>
+        <a href="mailto:websitebuilds01@gmail.com?subject=Free%20website%20demo"><span class="i"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>Email us</b><span>websitebuilds01@gmail.com</span></div></a>
+        <a id="waLink" hidden target="_blank" rel="noopener"><span class="i"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.6z"/></svg></span><div><b>WhatsApp us</b><span id="waText"></span></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <a href="#" class="logo"><svg class="mk" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="url(#ssbg)"/><g fill="#fff" stroke="#fff" stroke-width="18" stroke-linejoin="round"><path d="M278 840H386V610L332 300L278 610Z"/><path d="M450 840H574V540L512 150L450 540Z"/><path d="M638 840H746V610L692 300L638 610Z"/><path d="M278 790H746V840H278Z"/></g></svg><span>Spire <span class="lg2">Studio</span></span></a>
+  <div>Websites for family-run businesses · Lichfield, Staffordshire</div>
+</div></footer>
+
+<div class="mbar">
+  <a href="https://ig.me/m/website_buildzzz" target="_blank" rel="noopener">DM us</a>
+  <a id="mbWa" hidden target="_blank" rel="noopener">WhatsApp</a>
+  <a class="p" href="#contact">Free demo</a>
+</div>
+
+<a class="fab" id="fab" hidden target="_blank" rel="noopener" aria-label="WhatsApp us"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>
+
+<script>
+  // Add your WhatsApp number here (e.g. '07123 456789') to show the WhatsApp buttons. Leave empty to hide them.
+  const WHATSAPP = '';
+
+  if (WHATSAPP) {
+    const intl = '44' + WHATSAPP.replace(/\s/g, '').replace(/^0/, '');
+    const href = 'https://wa.me/' + intl + '?text=' + encodeURIComponent("Hi, I'd like a free website demo for my business");
+    const wa = document.getElementById('waLink'), fab = document.getElementById('fab'), mbWa = document.getElementById('mbWa');
+    wa.href = fab.href = mbWa.href = href;
+    document.getElementById('waText').textContent = 'Message us on WhatsApp';
+    wa.hidden = fab.hidden = mbWa.hidden = false;
+  }
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 10);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
